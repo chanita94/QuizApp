@@ -1,2 +1,56 @@
-﻿<h2>Your score</h2>
+﻿ @{ var quiz = ViewBag.Quiz as QuizApp.Models.Quiz;
+    var answers = ViewBag.Answers as List<int>;
+    string message;
+    double percentage = ((double)ViewBag.score / ViewBag.total) * 100;
+    @if (percentage == 100)
+    {
+        message = "Perfect!";
+    }
+    else if (percentage >= 75)
+    {
+        message = "Good!";
+    }
+    else if (percentage >= 50)
+    {
+        message = "Not bad!";
+    }
+    else
+    {
+        message = "Try again!";
+    }
+ }
+<h2>Your score</h2>
 <p>You get @ViewBag.Score out of @ViewBag.Total correct!</p>
+<h3>Review Your Answers:</h3> 
+<p>@message</p>
+<hr/>
+@for (int i = 0; i < quiz.Questions.Count; i++)
+{
+    <div>
+        <p><strong>Q@(i + 1):</strong> @quiz.Questions[i].Text</p>
+
+        @for (int j = 0; j < quiz.Questions[i].Options.Count; j++)
+        {
+            bool isSelected = answers != null && i < answers.Count && answers[i] == j;
+            bool isCorrect = j == quiz.Questions[i].CorrectAnswer;
+            string color = isCorrect ? "green" : (isSelected ? "red" : "black");
+
+            <p style="color:@color">
+                @quiz.Questions[i].Options[j]
+                @if (isSelected && isCorrect)
+                {
+                    <span>✔️ Your choice</span>
+                }
+                else if (isSelected && !isCorrect)
+                {
+                    <span>❌ Your choice</span>
+                }
+                else if (!isSelected && isCorrect)
+                {
+                    <span>✔️ Correct answer</span>
+                }
+            </p>
+        }
+    </div>
+    <hr />
+}

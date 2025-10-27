@@ -32,6 +32,7 @@ namespace QuizApp.Controllers
             int score = 0;
             for (int i = 0; i < quiz.Questions.Count; i++)
             {
+                Console.WriteLine(quiz.Questions[i].CorrectAnswer);
                 if (i<answers.Count && answers[i] == quiz.Questions[i].CorrectAnswer)
                 {
                     score++;
@@ -39,6 +40,8 @@ namespace QuizApp.Controllers
             }
             ViewBag.Score = score;
             ViewBag.Total = quiz.Questions.Count;
+            ViewBag.Quiz = quiz;           // send the quiz object
+            ViewBag.Answers = answers;     // send submitted answers
             return View("Result");
         }
     }

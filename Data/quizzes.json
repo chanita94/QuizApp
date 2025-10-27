@@ -5,27 +5,27 @@
     "Questions": [
       {
         "Text": "What is the capital of the United States?",
-        "Options": [ "Paris", "London", "Washington", "Berlin" ],
+        "Options": [ "A. Paris", "B. London", "C. Washington", "D. Berlin" ],
         "CorrectAnswerIndex": 2
       },
       {
         "Text": "What is the capital of Canada?",
-        "Options": [ "Ottawa", "Toronto", "Alberta", "Cold Lake" ],
+        "Options": [ "A. Ottawa", "B. Toronto", "C. Alberta", "D. Cold Lake" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "What is the capital city of Mongolia?",
-        "Options": [ "Darkhan", "Erdenet", "Ulaanbaatar", "Choibalsan" ],
+        "Options": [ "A. Darkhan", "B. Erdenet", "C. Ulaanbaatar", "D. Choibalsan" ],
         "CorrectAnswerIndex": 2
       },
       {
         "Text": "What is the capital of Iceland?",
-        "Options": [ "Reykjavik", "Kopavogur", "Hafnarfjordur", "Akureyri" ],
+        "Options": [ "A. Reykjavik", "B. Kopavogur", "C. Hafnarfjordur", "D. Akureyri" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "What is the capital city of Finland?",
-        "Options": [ "Helsinki", "Fjords", "Malmo", "Bergen" ],
+        "Options": [ "A. Helsinki", "B. Fjords", "C. Malmo", "D. Bergen" ],
         "CorrectAnswerIndex": 0
       }
     ]
@@ -36,27 +36,27 @@
     "Questions": [
       {
         "Text": "Who was the first President of the United States?",
-        "Options": [ "Thomas Jefferson", "George Washington", "Abraham Lincoln", "John Adams" ],
+        "Options": [ "A. Thomas Jefferson", "B. George Washington", "C. Abraham Lincoln", "D. John Adams" ],
         "CorrectAnswerIndex": 1
       },
       {
         "Text": "Which war was fought between the North and South regions of the United States from 1861 to 1865?",
-        "Options": [ "American Revolutionary War", "World War I", "Civil War", "World War II" ],
+        "Options": [ "A. American Revolutionary War", "B. World War I", "C. Civil War", "D. World War II" ],
         "CorrectAnswerIndex": 2
       },
       {
         "Text": "Who wrote the famous play Romeo and Juliet?",
-        "Options": [ "William Shakespeare", "Jane Austen", "Charles Dickens", "Mark Twain" ],
+        "Options": [ "A. William Shakespeare", "B. Jane Austen", "C. Charles Dickens", "D. Mark Twain" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "The Berlin Wall, which divided East and West Germany, fell in which year?",
-        "Options": [ "1989", "1990", "1991", "1988" ],
+        "Options": [ "A. 1989", "B. 1990", "C. 1991", "D. 1988" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Who was the leader of the Soviet Union during World War II?",
-        "Options": [ "Vladimir Lenin", "Joseph Stalin", "Nikita Khrushchev", "Mikhail Gorbachev" ],
+        "Options": [ "A. Vladimir Lenin", "B. Joseph Stalin", "C. Nikita Khrushchev", "D. Mikhail Gorbachev" ],
         "CorrectAnswerIndex": 1
       }
     ]
@@ -67,27 +67,27 @@
     "Questions": [
       {
         "Text": "Which continent has the most countries?",
-        "Options": [ "Africa", "North America", "South America", "Europe" ],
+        "Options": [ "A. Africa", "B. North America", "C. South America", "D. Europe" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Which ocean is the largest on Earth?",
-        "Options": [ "Pacific", "Indian", "Atlantic", "Arctic" ],
+        "Options": [ "A. Pacific", "B. Indian", "C. Atlantic", "D. Arctic" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Which country is shaped like a boot?",
-        "Options": [ "USA", "France", "Bulgaria", "Italy" ],
+        "Options": [ "A. USA", "B. France", "C. Bulgaria", "D. Italy" ],
         "CorrectAnswerIndex": 3
       },
       {
         "Text": "Which sea is the saltiest body of water on Earth?",
-        "Options": [ "Black sea", "Red sea", "Dead sea", "Ionian sea" ],
+        "Options": [ "A. Black sea", "B. Red sea", "C. Dead sea", "D. Ionian sea" ],
         "CorrectAnswerIndex": 2
       },
       {
         "Text": "What is the deepest ocean in the world?",
-        "Options": [ "Pacific", "Indian", "Atlantic", "Arctic" ],
+        "Options": [ "A. Pacific", "B. Indian", "C. Atlantic", "D. Arctic" ],
         "CorrectAnswerIndex": 0
       }
     ]
@@ -98,27 +98,27 @@
     "Questions": [
       {
         "Text": "Which ancient civilization built the Great Pyramid of Giza?",
-        "Options": [ "Egyptian", "Greek", "Roman", "Mayan" ],
+        "Options": [ "A. Egyptian", "B. Greek", "C. Roman", "D. Mayan" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Which city was the capital of the Roman Empire?",
-        "Options": [ "Athens", "Rome", "Alexandria", "Constantinople" ],
+        "Options": [ "A. Athens", "B. Rome", "C. Alexandria", "D. Constantinople" ],
         "CorrectAnswerIndex": 1
       },
       {
         "Text": "Which country was home to the ancient Inca civilization?",
-        "Options": [ "Peru", "Mexico", "Brazil", "Colombia" ],
+        "Options": [ "A. Peru", "B. Mexico", "C. Brazil", "D. Colombia" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Which civilization built the famous city of Machu Picchu?",
-        "Options": [ "India", "China", "Egypt", "Greece" ],
+        "Options": [ "A. India", "B. China", "C. Egypt", "D. Greece" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "Which country did the Vikings originate from?",
-        "Options": [ "Denmark", "Norway", "Sweden", "Iceland" ],
+        "Options": [ "A. Denmark", "B. Norway", "C. Sweden", "D. Iceland" ],
         "CorrectAnswerIndex": 2
       }
     ]
@@ -129,27 +129,27 @@
     "Questions": [
       {
         "Text": "The Great Wall is located in which country?",
-        "Options": [ "China", "Japan", "Vietnam", "South Korea" ],
+        "Options": [ "A. China", "B. Japan", "C. Vietnam", "D. South Korea" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "The Taj Mahal, one of the Seven Wonders of the World, is located in which country?",
-        "Options": [ "India", "China", "Egypt", "Greece" ],
+        "Options": [ "A. India", "B. China", "C. Egypt", "D. Greece" ],
         "CorrectAnswerIndex": 0
       },
       {
         "Text": "The Eiffel Tower is located in which city?",
-        "Options": [ "Berlin", "Paris", "London", "Barcelona" ],
+        "Options": [ "A. Berlin", "B. Paris", "C. London", "D. Barcelona" ],
         "CorrectAnswerIndex": 1
       },
       {
         "Text": "The Panama Canal, an important waterway connecting the Atlantic and Pacific Oceans, is located in which country?",
-        "Options": [ "Costa Rica", "Colombia", "Panama", "Nicaragua"],
+        "Options": [ "A. Costa Rica", "B. Colombia", "C. Panama", "D. Nicaragua" ],
         "CorrectAnswerIndex": 2
       },
       {
         "Text": "Where The Statue of Christ the Redeemer is located?",
-        "Options": [ "Rio de Janeiro", "Vatican city", "Paris", "Barcelona" ],
+        "Options": [ "A. Rio de Janeiro", "B. Vatican city", "C. Paris", "D. Barcelona" ],
         "CorrectAnswerIndex": 0
       }
     ]
