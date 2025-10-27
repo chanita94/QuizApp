@@ -23,7 +23,7 @@
                         <a href="@Url.Action("Index", "Quiz",new{id = quiz.Id})">@quiz.Title</a>
                      </td>
                     <td class="text-nowrap">
-                        <a class="btn btn-sm btn-primary me-2" asp-controller="Quiz" asp-action="Take" asp-route-id="@quiz.Id">Take</a>
+                        <a class="btn btn-sm btn-primary me-2" asp-controller="Quiz" asp-action="Index" asp-route-id="@quiz.Id">Take</a>
                     </td>
                 </tr>
             }
