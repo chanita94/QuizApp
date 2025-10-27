@@ -4,7 +4,7 @@
     <input type="hidden" name ="id" value = "@Model.Id"/>
     @for (int i =0;i<Model.Questions.Count; i++)
     {
-        <div>
+        <div class="question" data-index="@i" style="display: @(i == 0 ? "block" : "none")">
             <p>
                 @Model.Questions[i].Text
             </p>
@@ -15,12 +15,53 @@
                 @Model.Questions[i].Options[j]
             </label><br/>
             }
-        </div><hr/>
+        </div>
 
     }
-    <a class="btn btn-warning mt-3" asp-controller="Quiz" asp-action="Index" asp-route-id="@Model.Id">
-        Retake Quiz
-    </a>
-    <button class="btn btn-warning mt-3" type="submit">Submit</button>
+
+
+    <div class="mt-3">
+        <button type="button" id="prevBtn" class="btn btn-secondary" onclick="navigate(-1)" disabled>Previous</button>
+        <button type="button" id="nextBtn" class="btn btn-primary" onclick="navigate(1)">Next</button>
+        <button type="submit" id="submitBtn" class="btn btn-success" style="display:none">Submit</button>
+    </div>
+    <a class="btn btn-warning mt-3" asp-controller="Quiz" asp-action="Index" asp-route-id="@Model.Id"> Retake Quiz</a>
 </form>
 
+@section Scripts {
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function navigate(direction) {
+            // Скриваме текущия въпрос
+            questions[currentQuestion].style.display = 'none';
+
+            // Смяна на индекса
+            currentQuestion += direction;
+
+            // Граници
+            if (currentQuestion <= 0) {
+                currentQuestion = 0;
+                prevBtn.disabled = true;
+            } else {
+                prevBtn.disabled = false;
+            }
+
+            if (currentQuestion >= questions.length - 1) {
+                currentQuestion = questions.length - 1;
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitBtn.style.display = 'none';
+            }
+
+            // Покажи новия въпрос
+            questions[currentQuestion].style.display = 'block';
+        }
+    </script>
+}
