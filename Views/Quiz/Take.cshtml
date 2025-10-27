@@ -1,0 +1,23 @@
+﻿@model QuizApp.Models.Quiz
+<h2>@Model.Title</h2>
+<form asp-action="Submit" method="post">
+    <inout type="hidden" name ="id" value = "@Model.Id"/>
+    @for (int i =0;i<Model.Qustions.Count; i++)
+    {
+        <div>
+            <p>
+                @Model.Qustions[i].Text
+            </p>
+            @for(int j=0;j<Model.Qustions[i].Options.Count;j++)
+            {
+            <label>
+                <input type ="radio" name=" answers[@i]" value="@j"/>
+                @Model.Qustions[i].Options[j]
+            </label><br/>
+            }
+        </div><hr/>
+
+    }
+            <button type="submit">Submit</button>
+</form>
+

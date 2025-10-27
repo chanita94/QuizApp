@@ -1,0 +1,32 @@
+﻿@model List<QuizApp.Models.Quiz>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Available Quizzes</h1>
+    <table class="table table table-striped table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" class="text-center">
+                    Quiz name
+                </th>
+                <th scope="col">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var quiz in Model)
+            {
+                <tr>
+                     <td class="text-center">
+                        <a href="@Url.Action("Index", "Quiz",new{id = quiz.Id})">@quiz.Title</a>
+                     </td>
+                    <td class="text-nowrap">
+                        <a class="btn btn-sm btn-primary me-2" asp-controller="Quiz" asp-action="Take" asp-route-id="@quiz.Id">Take</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
