@@ -25,21 +25,17 @@ namespace QuizApp.Controllers
         public IActionResult Submit(int id, List<int>answers)
         {
             var quiz = LoadQUizzes().FirstOrDefault(X => X.Id == id);
-            Console.WriteLine($"ID: {id}");
-            Console.WriteLine($"Answers count: {answers?.Count ?? 0}");
             if (quiz == null)
             {
                 return NotFound();
             }
-            Console.WriteLine(answers.Count);
             int score = 0;
             for (int i = 0; i < quiz.Questions.Count; i++)
             {
-                if (i<answers.Count&& answers[i] == quiz.Questions[i].CorrectAnswer)
+                if (i<answers.Count && answers[i] == quiz.Questions[i].CorrectAnswer)
                 {
                     score++;
                 }
-
             }
             ViewBag.Score = score;
             ViewBag.Total = quiz.Questions.Count;
