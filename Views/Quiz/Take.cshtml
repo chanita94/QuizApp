@@ -1,32 +1,38 @@
-﻿@model QuizApp.Models.Quiz
-<h2>@Model.Title</h2>
-<p id="timer" class="mb-3 font-weight-bold">Time Remaining: 2:00</p>
-<form asp-controller="Quiz" asp-action="Submit" method="post">
-    <input type="hidden" name ="id" value = "@Model.Id"/>
-    @for (int i =0;i<Model.Questions.Count; i++)
-    {
-        <p id="questionProgress" class="mb-3"></p>
-        <div class="question" data-index="@i" style="display: @(i == 0 ? "block" : "none")">
-            <p>
-                @Model.Questions[i].Text
-            </p>
-            @for(int j=0;j<Model.Questions[i].Options.Count;j++)
-            {
-            <label>
-                <input type ="radio" name="answers[@(i)]" value="@j"/>
-                @Model.Questions[i].Options[j]
-            </label><br/>
-            }
+﻿@model QuizApp.Models.Quiz//tells the page it receives a single Quiz
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 600px; max-width: 95%;">
+        <div class="card-body">
+            <h2>@Model.Title</h2>
+            <form asp-controller="Quiz" asp-action="Submit" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                @for (int i = 0; i < Model.Questions.Count; i++)
+                {
+                    <p id="questionProgress" class="mb-3"></p>
+                    <div class="question" data-index="@i" style="display: @(i == 0 ? "block" : "none")">
+                        <p>
+                            @Model.Questions[i].Text
+                        </p>
+                        @for (int j = 0; j < Model.Questions[i].Options.Count; j++)
+                        {
+                            <label>
+                                <input type="radio" name="answers[@(i)]" value="@j" />
+                                @Model.Questions[i].Options[j]
+                            </label>
+                            <br />
+                        }
+                    </div>
+                }
+                <div class="mt-4">
+                    <button type="button" id="prevBtn" class="btn btn-secondary" onclick="navigate(-1)" disabled>Previous</button>
+                    <button type="button" id="nextBtn" class="btn btn-primary" onclick="navigate(1)">Next</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success" style="display:none">Submit</button>
+                    <a class="btn btn-success" asp-controller="Quiz" asp-action="Index" asp-route-id="@Model.Id"> Retake Quiz</a>
+                </div>
+            </form>
+            <p id="timer" class="mb-3 font-weight-bold">Time Remaining: 2:00</p>
         </div>
-    }
-    <div class="mt-3">
-        <button type="button" id="prevBtn" class="btn btn-secondary" onclick="navigate(-1)" disabled>Previous</button>
-        <button type="button" id="nextBtn" class="btn btn-primary" onclick="navigate(1)">Next</button>
-        <button type="submit" id="submitBtn" class="btn btn-success" style="display:none">Submit</button>
     </div>
-    <a class="btn btn-warning mt-3" asp-controller="Quiz" asp-action="Index" asp-route-id="@Model.Id"> Retake Quiz</a>
-</form>
-
+</div>
 @section Scripts {
     <script>
         let currentQuestion = 0;
@@ -34,7 +40,7 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
-        
+
         function updateProgressText() {
             const total = questions.length;
             const progressText = document.getElementById('questionProgress');
@@ -42,20 +48,14 @@
         }
 
         function navigate(direction) {
-            // Скриваме текущия въпрос
             questions[currentQuestion].style.display = 'none';
-
-            // Смяна на индекса
             currentQuestion += direction;
-
-            // Граници
             if (currentQuestion <= 0) {
                 currentQuestion = 0;
                 prevBtn.disabled = true;
             } else {
                 prevBtn.disabled = false;
             }
-
             if (currentQuestion >= questions.length - 1) {
                 currentQuestion = questions.length - 1;
                 nextBtn.style.display = 'none';
@@ -64,16 +64,29 @@
                 nextBtn.style.display = 'inline-block';
                 submitBtn.style.display = 'none';
             }
-
-            // Покажи новия въпрос
             questions[currentQuestion].style.display = 'block';
             updateProgressText();
         }
         updateProgressText();
-                // Set total quiz time in seconds (e.g., 10 minutes)
-        let totalTime = 2 * 60;
-        const timerElement = document.getElementById('timer');
+            function autoSubmitQuiz() {
+            const form = document.getElementById('quizForm');
+            const questions = document.querySelectorAll('.question');
+            questions.forEach((q, i) => {
+                const checkedInput = q.querySelector('input[type="radio"]:checked');
+                if (!checkedInput) {
+                    // hidden input to send "empty" value for unanswered
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = `answers[${i}]`;
+                    hiddenInput.value = ""; // or -1 to indicate unanswered
+                    form.appendChild(hiddenInput);
+                }
+            });
 
+            form.submit();
+        }
+        let totalTime = 2 * 60;//two minutes timer
+        const timerElement = document.getElementById('timer');
         function startTimer() {
             const timerInterval = setInterval(() => {
                 const minutes = Math.floor(totalTime / 60);
@@ -83,14 +96,11 @@
                 if (totalTime <= 0) {
                     clearInterval(timerInterval);
                     alert("Time's up! Submitting your quiz.");
-                    document.getElementById('quizForm').submit();
+                    autoSubmitQuiz();
                 }
-
                 totalTime--;
             }, 1000);
         }
-
-        // Start the timer when page loads
-        startTimer();
+        startTimer();// Start the timer when page loads
     </script>
 }

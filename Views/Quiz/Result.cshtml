@@ -1,5 +1,6 @@
-﻿ @{ var quiz = ViewBag.Quiz as QuizApp.Models.Quiz;
-    var answers = ViewBag.Answers as List<int>;
+﻿@{
+    var quiz = ViewBag.Quiz as QuizApp.Models.Quiz;//Get the quiz from the ViewBag
+    var answers = ViewBag.Answers as List<int>;//Get the answers from the ViewBag
     string message;
     double percentage = ((double)ViewBag.score / ViewBag.total) * 100;
     @if (percentage == 100)
@@ -19,15 +20,15 @@
         message = "Try again!";
     }
  }
-<h2>Your score</h2>
-<p>You get @ViewBag.Score out of @ViewBag.Total correct!</p>
+<h2> class="text-center"Your score</h2>
+<p class="text-center">You get @ViewBag.Score out of @ViewBag.Total correct!</p>
 <hr />
-<h3>Review Your Answers:</h3> 
-<p>@message</p>
+<h3 class="text-center">Review Your Answers:</h3>
+<p class="text-danger text-center">@message</p>
 <hr/>
 @for (int i = 0; i < quiz.Questions.Count; i++)
 {
-    <div>
+    <div style="background-color: #f0f8ff">
         <p><strong>Q@(i + 1):</strong> @quiz.Questions[i].Text</p>
 
         @for (int j = 0; j < quiz.Questions[i].Options.Count; j++)
